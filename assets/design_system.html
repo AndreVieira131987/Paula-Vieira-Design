@@ -1,0 +1,806 @@
+<!DOCTYPE html>
+<html lang="pt-BR" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Design System | Paula Vieira - Social Media Portfolio</title>
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Oswald:wght@500;600;700&family=Playfair+Display:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
+    
+    <!-- Iconify -->
+    <script src="https://code.iconify.design/iconify-icon/1.0.7/iconify-icon.min.js"></script>
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#3F556B',
+                        secondary: '#d1c8c0',
+                        dark: '#2d322f',
+                        light: '#ebedea',
+                        surface: '#f4f6f3',
+                        accent: '#E3DDD7',
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        display: ['Oswald', 'sans-serif'],
+                        accent: ['Playfair Display', 'serif'],
+                    },
+                }
+            }
+        }
+    </script>
+
+    <style>
+        /* Custom Animations */
+        @keyframes animationIn {
+            0% {
+                opacity: 0;
+                transform: translateY(40px);
+                filter: blur(12px);
+            }
+            100% {
+                opacity: 1;
+                transform: translateY(0);
+                filter: blur(0px);
+            }
+        }
+
+        @keyframes slideUpBlur {
+            0% {
+                opacity: 0;
+                transform: translateY(30px);
+                filter: blur(10px);
+            }
+            100% {
+                opacity: 1;
+                transform: translateY(0);
+                filter: blur(0);
+            }
+        }
+
+        @keyframes sonarWave {
+            0% { transform: scale(0.9); opacity: 0.8; }
+            100% { transform: scale(2.2); opacity: 0; }
+        }
+
+        @keyframes glowPulse {
+            0%, 100% { box-shadow: 0 0 20px rgba(63, 85, 107, 0.1); }
+            50% { box-shadow: 0 0 40px rgba(63, 85, 107, 0.3); }
+        }
+
+        @keyframes floating {
+            0%, 100% { transform: translateY(0px) rotate(0deg); }
+            50% { transform: translateY(-15px) rotate(2deg); }
+        }
+
+        .animate-on-scroll {
+            opacity: 0;
+            transition: all 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .animate-on-scroll.is-visible {
+            opacity: 1;
+            animation: animationIn 1.2s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+        }
+
+        .sonar-ring {
+            animation: sonarWave 2s infinite cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .floating {
+            animation: floating 6s ease-in-out infinite;
+        }
+
+        /* Grain Effect */
+        .grain-bg::before {
+            content: "";
+            position: fixed;
+            inset: 0;
+            z-index: 10000;
+            opacity: 0.035;
+            pointer-events: none;
+            mix-blend-mode: multiply;
+            background-image: url('data:image/svg+xml,%3Csvg viewBox=%220 0 200 200%22 xmlns=%22http://www.w3.org/2000/svg%22%3E%3Cfilter id=%22noiseFilter%22%3E%3CfeTurbulence type=%22fractalNoise%22 baseFrequency=%220.85%22 numOctaves=%223%22 stitchTiles=%22stitch%22/%3E%3C/filter%3E%3Crect width=%22100%25%22 height=%22100%25%22 filter=%22url(%23noiseFilter)%22/%3E%3C/svg%3E');
+        }
+
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar { width: 6px; }
+        ::-webkit-scrollbar-track { background: #ebedea; }
+        ::-webkit-scrollbar-thumb { background: #3F556B; border-radius: 10px; }
+
+        /* Typography Helper Classes */
+        .text-glow { text-shadow: 0 0 15px rgba(63, 85, 107, 0.2); }
+        
+        .glass {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .glass-dark {
+            background: rgba(30, 36, 32, 0.8);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        /* Slider Animations */
+        .slide-active { opacity: 1; z-index: 20; transform: scale(1); }
+        .slide-hidden { opacity: 0; z-index: 10; transform: scale(0.95); }
+    </style>
+</head>
+<body class="bg-light text-dark font-sans selection:bg-primary selection:text-white grain-bg">
+
+    <!-- Navigation -->
+    <header class="fixed top-0 w-full z-[1000] px-6 py-6 transition-all duration-500" id="main-nav">
+        <div class="max-w-[1400px] mx-auto flex items-center justify-between">
+            <div class="flex items-center gap-3 group cursor-pointer">
+                <div class="w-10 h-10 bg-dark text-white rounded-xl flex items-center justify-center transition-transform group-hover:rotate-12 duration-500 shadow-xl shadow-dark/10">
+                    <iconify-icon icon="solar:stars-minimalistic-bold-duotone" width="24"></iconify-icon>
+                </div>
+                <div class="flex flex-col">
+                    <span class="font-display text-xl font-bold tracking-tighter leading-none">PAULA VIEIRA</span>
+                    <span class="text-[10px] uppercase tracking-[0.3em] font-semibold text-primary/70">Social Media Design</span>
+                </div>
+            </div>
+
+            <nav class="hidden md:flex items-center glass rounded-full px-2 py-1.5 border border-dark/5 shadow-sm gap-1">
+                <a href="#hero" class="px-6 py-2 text-xs font-semibold uppercase tracking-widest hover:bg-white rounded-full transition-all">Hero</a>
+                <a href="#showcase" class="px-6 py-2 text-xs font-semibold uppercase tracking-widest hover:bg-white rounded-full transition-all">Visual</a>
+                <a href="#typography" class="px-6 py-2 text-xs font-semibold uppercase tracking-widest hover:bg-white rounded-full transition-all">Type</a>
+                <a href="#colors" class="px-6 py-2 text-xs font-semibold uppercase tracking-widest hover:bg-white rounded-full transition-all">Colors</a>
+                <a href="#components" class="px-6 py-2 text-xs font-semibold uppercase tracking-widest hover:bg-white rounded-full transition-all">UI Kit</a>
+            </nav>
+
+            <a href="#" class="group relative overflow-hidden bg-dark text-white px-8 py-3 rounded-full text-xs font-semibold uppercase tracking-[0.2em] shadow-2xl shadow-dark/20 transition-all hover:scale-105 active:scale-95">
+                <span class="relative z-10 flex items-center gap-2">
+                    Let's Create
+                    <iconify-icon icon="solar:arrow-right-linear" width="16" class="group-hover:translate-x-1 transition-transform"></iconify-icon>
+                </span>
+                <div class="absolute inset-0 bg-primary translate-y-full group-hover:translate-y-0 transition-transform duration-500"></div>
+            </a>
+        </div>
+    </header>
+
+    <main>
+        <!-- 1. HERO DEMONSTRATION -->
+        <section id="hero" class="relative min-h-screen flex items-center pt-20 overflow-hidden bg-light">
+            <!-- Background Elements -->
+            <div class="absolute inset-0 z-0">
+                <img src="https://images.unsplash.com/photo-1557683316-973673baf926?q=80&w=2000&auto=format&fit=crop" class="w-full h-full object-cover grayscale opacity-20" alt="">
+                <div class="absolute inset-0 bg-gradient-to-b from-light/0 via-light/80 to-light"></div>
+            </div>
+
+            <div class="max-w-[1400px] mx-auto px-6 w-full relative z-10 py-20">
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-20 items-center">
+                    
+                    <!-- Content -->
+                    <div class="flex flex-col items-start text-left">
+                        <div class="inline-flex items-center gap-3 bg-white/60 backdrop-blur-sm border border-dark/5 px-4 py-2 rounded-full mb-8 [animation:animationIn_0.8s_ease-out_0.2s_both]">
+                            <span class="flex h-2 w-2 relative">
+                                <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-primary opacity-75"></span>
+                                <span class="relative inline-flex rounded-full h-2 w-2 bg-primary"></span>
+                            </span>
+                            <span class="text-[10px] uppercase font-bold tracking-[0.3em] text-dark/70">Creative Design System v1.0</span>
+                        </div>
+
+                        <h1 class="font-display text-[5.5rem] md:text-[8rem] lg:text-[9rem] leading-[0.85] tracking-tighter uppercase mb-8 flex flex-col">
+                            <span class="[animation:animationIn_1.2s_ease-out_0.4s_both]">Build your</span>
+                            <span class="text-primary italic font-accent lowercase normal-case tracking-normal [animation:animationIn_1.2s_ease-out_0.6s_both]">authority.</span>
+                        </h1>
+
+                        <p class="font-accent italic text-2xl md:text-3xl text-dark/60 mb-12 max-w-xl leading-relaxed [animation:animationIn_1.2s_ease-out_0.8s_both]">
+                            Transformando conhecimento em presença digital estratégica através de design premium e inteligência visual.
+                        </p>
+
+                        <div class="flex flex-wrap gap-6 [animation:animationIn_1.2s_ease-out_1s_both]">
+                            <button class="group relative bg-dark text-white px-10 py-5 rounded-full text-xs font-bold uppercase tracking-[0.25em] shadow-2xl transition-all hover:scale-105">
+                                <div class="absolute inset-0 bg-primary rounded-full sonar-ring opacity-30"></div>
+                                <span class="relative z-10 flex items-center gap-3">
+                                    Start Portfolio
+                                    <iconify-icon icon="solar:crown-minimalistic-bold" width="18"></iconify-icon>
+                                </span>
+                            </button>
+                            <button class="flex items-center gap-4 text-xs font-bold uppercase tracking-[0.25em] hover:text-primary transition-colors py-5 px-6">
+                                <div class="w-12 h-12 rounded-full border border-dark/10 flex items-center justify-center group hover:border-primary">
+                                    <iconify-icon icon="solar:play-bold" width="16" class="text-dark group-hover:text-primary"></iconify-icon>
+                                </div>
+                                View System logic
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Interactive Showcase (Phone + Blinds) -->
+                    <div class="relative flex justify-center lg:justify-end [animation:animationIn_1.5s_ease-out_0.5s_both]">
+                        <!-- Blinds Background (From DS0) -->
+                        <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 flex gap-1 opacity-20 pointer-events-none scale-150">
+                            <div class="w-4 h-96 bg-dark/20 rounded-full"></div>
+                            <div class="w-4 h-[500px] bg-dark/20 rounded-full -translate-y-10"></div>
+                            <div class="w-4 h-[600px] bg-dark/20 rounded-full -translate-y-20"></div>
+                            <div class="w-4 h-[500px] bg-dark/20 rounded-full -translate-y-10"></div>
+                            <div class="w-4 h-96 bg-dark/20 rounded-full"></div>
+                        </div>
+
+                        <!-- Phone Mockup (From DS1/DS2) -->
+                        <div class="relative w-[320px] h-[650px] bg-dark rounded-[3.5rem] p-3 shadow-[0_50px_100px_-20px_rgba(0,0,0,0.5)] floating ring-1 ring-white/10">
+                            <div class="absolute top-0 left-1/2 -translate-x-1/2 h-7 w-32 bg-dark rounded-b-3xl z-50"></div>
+                            
+                            <div class="w-full h-full rounded-[2.8rem] overflow-hidden relative bg-white">
+                                <!-- Mock Interface -->
+                                <div id="hero-slider" class="w-full h-full relative">
+                                    <div class="slider-card slide-active absolute inset-0 w-full h-full transition-all duration-700">
+                                        <img src="https://images.unsplash.com/photo-1524504388940-b1c1722653e1?q=80&w=800&auto=format&fit=crop" class="w-full h-full object-cover" alt="">
+                                        <div class="absolute inset-0 bg-gradient-to-t from-dark/90 via-transparent to-transparent"></div>
+                                        <div class="absolute bottom-10 left-6 right-6 text-white">
+                                            <span class="text-[10px] uppercase tracking-widest font-bold text-secondary mb-2 block">Case Study</span>
+                                            <h3 class="font-display text-3xl leading-tight uppercase tracking-tight">Luxury <br> Aesthetics</h3>
+                                        </div>
+                                    </div>
+                                    <div class="slider-card slide-hidden absolute inset-0 w-full h-full transition-all duration-700">
+                                        <img src="https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?q=80&w=800&auto=format&fit=crop" class="w-full h-full object-cover" alt="">
+                                        <div class="absolute inset-0 bg-gradient-to-t from-dark/90 via-transparent to-transparent"></div>
+                                        <div class="absolute bottom-10 left-6 right-6 text-white">
+                                            <span class="text-[10px] uppercase tracking-widest font-bold text-secondary mb-2 block">Social Growth</span>
+                                            <h3 class="font-display text-3xl leading-tight uppercase tracking-tight">Organic <br> Virality</h3>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- UI Overlays -->
+                                <div class="absolute top-12 left-6 right-6 flex justify-between items-center z-30">
+                                    <div class="flex items-center gap-2">
+                                        <div class="w-8 h-8 rounded-full border border-white/50 overflow-hidden">
+                                            <img src="https://hoirqrkdgbmvpwutwuwj.supabase.co/storage/v1/object/public/assets/assets/917d6f93-fb36-439a-8c48-884b67b35381_1600w.jpg" alt="">
+                                        </div>
+                                        <span class="text-[10px] font-bold text-white uppercase tracking-wider">@paulavieira</span>
+                                    </div>
+                                    <div class="px-3 py-1 bg-white/20 backdrop-blur-md rounded-full border border-white/20">
+                                        <span class="text-[10px] font-bold text-white uppercase">Live</span>
+                                    </div>
+                                </div>
+
+                                <div class="absolute right-4 bottom-32 flex flex-col gap-4 z-30">
+                                    <div class="w-10 h-10 bg-white/10 backdrop-blur-md rounded-full flex items-center justify-center text-white border border-white/20">
+                                        <iconify-icon icon="solar:heart-bold" width="20"></iconify-icon>
+                                    </div>
+                                    <div class="w-10 h-10 bg-white/10 backdrop-blur-md rounded-full flex items-center justify-center text-white border border-white/20">
+                                        <iconify-icon icon="solar:share-bold" width="20"></iconify-icon>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Glow Effect behind Phone -->
+                            <div class="absolute -inset-10 bg-primary/20 blur-[100px] -z-10 rounded-full animate-pulse"></div>
+                        </div>
+
+                        <!-- Floating Stat Card -->
+                        <div class="absolute -left-12 top-1/3 glass p-6 rounded-2xl border border-dark/5 shadow-2xl z-40 hidden md:block floating" style="animation-delay: 1s">
+                            <div class="flex items-center gap-4 mb-4">
+                                <div class="w-10 h-10 bg-primary/10 text-primary rounded-lg flex items-center justify-center">
+                                    <iconify-icon icon="solar:graph-up-bold" width="20"></iconify-icon>
+                                </div>
+                                <div>
+                                    <p class="text-[10px] uppercase font-bold text-dark/40 tracking-widest">Growth rate</p>
+                                    <p class="text-xl font-display font-bold">+245%</p>
+                                </div>
+                            </div>
+                            <div class="h-1 w-full bg-dark/5 rounded-full overflow-hidden">
+                                <div class="h-full bg-primary w-[75%] rounded-full"></div>
+                            </div>
+                        </div>
+
+                        <!-- Floating Badge -->
+                        <div class="absolute -right-8 bottom-20 bg-secondary text-dark p-6 rounded-2xl shadow-2xl z-40 hidden md:block floating" style="animation-delay: 2s">
+                            <iconify-icon icon="solar:medal-star-bold" width="32" class="mb-2 text-primary"></iconify-icon>
+                            <p class="font-display text-lg font-bold uppercase leading-tight">PREMIUM <br> STRATEGY</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 2. VISUAL SHOWCASE (ADAPTED FROM DS0) -->
+        <section id="showcase" class="w-full bg-light py-20">
+            <div class="max-w-[1400px] mx-auto px-6 mb-20 text-center animate-on-scroll">
+                <h2 class="font-display text-6xl md:text-8xl lg:text-9xl uppercase leading-[0.85] tracking-tighter mb-8">
+                    Crie impacto
+                    <br>
+                    <span class="text-primary italic font-accent lowercase normal-case tracking-normal">todos os dias.</span>
+                </h2>
+                <p class="font-accent italic text-2xl text-dark/60">— sem depender de esforço manual.</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 h-auto lg:h-[75vh]">
+                <!-- Item 1 -->
+                <div class="relative group overflow-hidden h-96 lg:h-full cursor-pointer bg-dark animate-on-scroll">
+                    <img src="https://res.cloudinary.com/dlmpwmgej/image/upload/v1772583767/ideacio%CC%81n_vertical_sgsuvt.png?w=800&q=80" alt="Ideação" class="w-full h-full object-cover z-10 absolute inset-0 transition-transform duration-700 group-hover:scale-110">
+                    <div class="absolute inset-0 bg-gradient-to-t from-dark/90 via-dark/20 to-transparent z-10"></div>
+
+                    <div class="absolute bottom-0 left-0 p-10 z-20 pointer-events-none">
+                        <span class="font-display text-xs text-secondary uppercase tracking-[0.3em] mb-3 block">Pilar 01</span>
+                        <h3 class="font-display text-4xl lg:text-5xl font-bold text-white uppercase tracking-tighter">IDEAÇÃO</h3>
+                    </div>
+
+                    <div class="absolute inset-y-0 right-0 w-[70%] bg-primary/90 backdrop-blur-xl translate-x-full group-hover:translate-x-0 transition-transform duration-700 ease-out z-30 flex flex-col justify-center p-10 border-l border-white/10">
+                        <div class="w-12 h-px bg-white/40 mb-8"></div>
+                        <p class="text-white text-lg leading-relaxed font-medium mb-6">Criação de estratégias em segundos com curadoria de conteúdo inteligente.</p>
+                        <iconify-icon icon="solar:lightbulb-bold" class="text-white/20 absolute bottom-10 right-10" width="80"></iconify-icon>
+                    </div>
+                </div>
+
+                <!-- Item 2 -->
+                <div class="relative group overflow-hidden h-96 lg:h-full cursor-pointer bg-dark animate-on-scroll" style="animation-delay: 0.1s">
+                    <img src="https://res.cloudinary.com/dlmpwmgej/image/upload/v1772583783/Produccio%CC%81n_2_vnavnz.jpg?w=800&q=80" alt="Produção" class="w-full h-full object-cover absolute inset-0 transition-transform duration-700 group-hover:scale-110">
+                    <div class="absolute inset-0 bg-gradient-to-t from-dark/90 via-dark/20 to-transparent z-10"></div>
+
+                    <div class="absolute bottom-0 left-0 p-10 z-20 pointer-events-none">
+                        <span class="font-display text-xs text-secondary uppercase tracking-[0.3em] mb-3 block">Pilar 02</span>
+                        <h3 class="font-display text-4xl lg:text-5xl font-bold text-white uppercase tracking-tighter">PRODUÇÃO</h3>
+                    </div>
+
+                    <div class="absolute inset-y-0 right-0 w-[70%] bg-primary/90 backdrop-blur-xl translate-x-full group-hover:translate-x-0 transition-transform duration-700 ease-out z-30 flex flex-col justify-center p-10 border-l border-white/10">
+                        <div class="w-12 h-px bg-white/40 mb-8"></div>
+                        <p class="text-white text-lg leading-relaxed font-medium mb-6">Design e vídeo de alta fidelidade prontos para converter sua audiência.</p>
+                        <iconify-icon icon="solar:camera-bold" class="text-white/20 absolute bottom-10 right-10" width="80"></iconify-icon>
+                    </div>
+                </div>
+
+                <!-- Item 3 -->
+                <div class="relative group overflow-hidden h-96 lg:h-full cursor-pointer bg-dark animate-on-scroll" style="animation-delay: 0.2s">
+                    <img src="https://res.cloudinary.com/dlmpwmgej/image/upload/v1772583755/Distribucio%CC%81n_wqxhaz.png?w=800&q=80" alt="Distribuição" class="w-full h-full object-cover absolute inset-0 transition-transform duration-700 group-hover:scale-110">
+                    <div class="absolute inset-0 bg-gradient-to-t from-dark/90 via-dark/20 to-transparent z-10"></div>
+
+                    <div class="absolute bottom-0 left-0 p-10 z-20 pointer-events-none">
+                        <span class="font-display text-xs text-secondary uppercase tracking-[0.3em] mb-3 block">Pilar 03</span>
+                        <h3 class="font-display text-4xl lg:text-5xl font-bold text-white uppercase tracking-tighter">GESTÃO</h3>
+                    </div>
+
+                    <div class="absolute inset-y-0 right-0 w-[70%] bg-primary/90 backdrop-blur-xl translate-x-full group-hover:translate-x-0 transition-transform duration-700 ease-out z-30 flex flex-col justify-center p-10 border-l border-white/10">
+                        <div class="w-12 h-px bg-white/40 mb-8"></div>
+                        <p class="text-white text-lg leading-relaxed font-medium mb-6">Distribuição estratégica em multicanais para máxima onipresença.</p>
+                        <iconify-icon icon="solar:share-circle-bold" class="text-white/20 absolute bottom-10 right-10" width="80"></iconify-icon>
+                    </div>
+                </div>
+
+                <!-- Item 4 -->
+                <div class="relative group overflow-hidden h-96 lg:h-full cursor-pointer bg-dark animate-on-scroll" style="animation-delay: 0.3s">
+                    <img src="https://res.cloudinary.com/dlmpwmgej/image/upload/v1772583776/optimizacio%CC%81n_2_du7zum.png?w=800&q=80" alt="Optimización" class="w-full h-full object-cover absolute inset-0 transition-transform duration-700 group-hover:scale-110">
+                    <div class="absolute inset-0 bg-gradient-to-t from-dark/90 via-dark/20 to-transparent z-10"></div>
+
+                    <div class="absolute bottom-0 left-0 p-10 z-20 pointer-events-none">
+                        <span class="font-display text-xs text-secondary uppercase tracking-[0.3em] mb-3 block">Pilar 04</span>
+                        <h3 class="font-display text-4xl lg:text-5xl font-bold text-white uppercase tracking-tighter">ANÁLISE</h3>
+                    </div>
+
+                    <div class="absolute inset-y-0 right-0 w-[70%] bg-primary/90 backdrop-blur-xl translate-x-full group-hover:translate-x-0 transition-transform duration-700 ease-out z-30 flex flex-col justify-center p-10 border-l border-white/10">
+                        <div class="w-12 h-px bg-white/40 mb-8"></div>
+                        <p class="text-white text-lg leading-relaxed font-medium mb-6">Otimização baseada em dados reais para escalar seus resultados.</p>
+                        <iconify-icon icon="solar:graph-bold" class="text-white/20 absolute bottom-10 right-10" width="80"></iconify-icon>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 3. TYPOGRAPHY SCALE -->
+        <section id="typography" class="py-32 bg-white border-y border-dark/5">
+            <div class="max-w-[1400px] mx-auto px-6">
+                <div class="flex flex-col md:flex-row justify-between items-end mb-24 gap-8">
+                    <div class="animate-on-scroll">
+                        <span class="text-[10px] uppercase font-bold tracking-[0.4em] text-primary mb-4 block">Design Tokens</span>
+                        <h2 class="font-display text-5xl md:text-7xl uppercase tracking-tighter">Typography <br> <span class="italic font-accent lowercase normal-case text-primary/70">and hierarchy</span></h2>
+                    </div>
+                    <p class="text-dark/50 max-w-sm font-medium animate-on-scroll">The foundation of our visual language. We use strong display type with elegant accents to create authority and approachability.</p>
+                </div>
+
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-20">
+                    <!-- Left: Headings -->
+                    <div class="space-y-12">
+                        <div class="animate-on-scroll">
+                            <p class="text-[10px] uppercase font-bold text-dark/30 mb-6 flex items-center gap-3">
+                                <span>Display System</span>
+                                <span class="h-px flex-grow bg-dark/5"></span>
+                                <span>Oswald</span>
+                            </p>
+                            <div class="space-y-8">
+                                <div class="group">
+                                    <span class="text-[10px] text-dark/40 block mb-2">H1 Display / 9rem</span>
+                                    <h1 class="font-display text-7xl md:text-8xl lg:text-9xl uppercase leading-[0.85] tracking-tighter group-hover:text-primary transition-colors">HEADLINE</h1>
+                                </div>
+                                <div class="group">
+                                    <span class="text-[10px] text-dark/40 block mb-2">H2 Display / 6rem</span>
+                                    <h2 class="font-display text-5xl md:text-6xl lg:text-7xl uppercase leading-[0.9] tracking-tighter">SUBTITLE</h2>
+                                </div>
+                                <div class="group">
+                                    <span class="text-[10px] text-dark/40 block mb-2">H3 Display / 4rem</span>
+                                    <h3 class="font-display text-4xl md:text-5xl uppercase tracking-tight">Component Header</h3>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="animate-on-scroll">
+                            <p class="text-[10px] uppercase font-bold text-dark/30 mb-6 flex items-center gap-3">
+                                <span>Accent System</span>
+                                <span class="h-px flex-grow bg-dark/5"></span>
+                                <span>Playfair Display</span>
+                            </p>
+                            <div class="space-y-6">
+                                <h2 class="font-accent italic text-4xl md:text-6xl text-primary">Elegant Narrative</h2>
+                                <p class="font-accent text-2xl md:text-3xl text-dark/70">Strategic storytelling for modern portfolios.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Right: Body and Details -->
+                    <div class="space-y-16">
+                        <div class="animate-on-scroll">
+                            <p class="text-[10px] uppercase font-bold text-dark/30 mb-6 flex items-center gap-3">
+                                <span>Body System</span>
+                                <span class="h-px flex-grow bg-dark/5"></span>
+                                <span>Inter</span>
+                            </p>
+                            <div class="space-y-10">
+                                <div>
+                                    <span class="text-[10px] text-dark/40 block mb-3">Body Large / 1.25rem</span>
+                                    <p class="text-xl md:text-2xl text-dark/80 leading-relaxed font-medium">This is a larger body text used for introductions and lead-ins. It maintains high readability and professional feel.</p>
+                                </div>
+                                <div>
+                                    <span class="text-[10px] text-dark/40 block mb-3">Body Base / 1rem</span>
+                                    <p class="text-base text-dark/60 leading-relaxed">Standard body text for descriptions and content. It's clean, neutral, and pairs perfectly with our bold display headers. Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                                </div>
+                                <div class="grid grid-cols-2 gap-8">
+                                    <div>
+                                        <span class="text-[10px] text-dark/40 block mb-3">Small Text</span>
+                                        <p class="text-sm text-dark/50 font-medium">Captions, helper text, and secondary details.</p>
+                                    </div>
+                                    <div>
+                                        <span class="text-[10px] text-dark/40 block mb-3">Utility Text</span>
+                                        <p class="text-[10px] uppercase font-bold tracking-[0.25em] text-primary">Labels and Badges</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="bg-surface p-10 rounded-3xl animate-on-scroll">
+                            <h4 class="font-display text-xl font-bold uppercase mb-6">Type Rules</h4>
+                            <ul class="space-y-4">
+                                <li class="flex items-center gap-3 text-sm text-dark/70">
+                                    <iconify-icon icon="solar:check-circle-bold" class="text-primary"></iconify-icon>
+                                    Use Oswald for all caps headlines only.
+                                </li>
+                                <li class="flex items-center gap-3 text-sm text-dark/70">
+                                    <iconify-icon icon="solar:check-circle-bold" class="text-primary"></iconify-icon>
+                                    Playfair Display should be used for emotional emphasis.
+                                </li>
+                                <li class="flex items-center gap-3 text-sm text-dark/70">
+                                    <iconify-icon icon="solar:check-circle-bold" class="text-primary"></iconify-icon>
+                                    Inter handles all functional and informational copy.
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 4. COLOR SYSTEM -->
+        <section id="colors" class="py-32 bg-light">
+            <div class="max-w-[1400px] mx-auto px-6">
+                <div class="flex flex-col md:flex-row justify-between items-end mb-24 gap-8">
+                    <div class="animate-on-scroll">
+                        <span class="text-[10px] uppercase font-bold tracking-[0.4em] text-primary mb-4 block">Visual DNA</span>
+                        <h2 class="font-display text-5xl md:text-7xl uppercase tracking-tighter">Color <br> <span class="italic font-accent lowercase normal-case text-primary/70">palette</span></h2>
+                    </div>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
+                    <!-- Primary -->
+                    <div class="group animate-on-scroll">
+                        <div class="h-64 rounded-3xl bg-primary mb-6 shadow-2xl transition-transform group-hover:scale-[1.02] duration-500 flex items-end p-8">
+                            <span class="text-white font-display text-4xl font-bold opacity-20 uppercase">Primary</span>
+                        </div>
+                        <div class="flex justify-between items-center px-2">
+                            <div>
+                                <h4 class="font-bold uppercase text-xs tracking-widest">Slate Blue</h4>
+                                <p class="text-[10px] text-dark/40">#3F556B</p>
+                            </div>
+                            <div class="flex gap-2">
+                                <div class="w-6 h-6 rounded-full bg-primary/80"></div>
+                                <div class="w-6 h-6 rounded-full bg-primary/40"></div>
+                                <div class="w-6 h-6 rounded-full bg-primary/10"></div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Secondary/Accent -->
+                    <div class="group animate-on-scroll" style="animation-delay: 0.1s">
+                        <div class="h-64 rounded-3xl bg-secondary mb-6 shadow-2xl transition-transform group-hover:scale-[1.02] duration-500 flex items-end p-8">
+                            <span class="text-dark font-display text-4xl font-bold opacity-20 uppercase">Accent</span>
+                        </div>
+                        <div class="flex justify-between items-center px-2">
+                            <div>
+                                <h4 class="font-bold uppercase text-xs tracking-widest">Luxury Gold</h4>
+                                <p class="text-[10px] text-dark/40">#d1c8c0</p>
+                            </div>
+                            <div class="flex gap-2">
+                                <div class="w-6 h-6 rounded-full bg-secondary/80"></div>
+                                <div class="w-6 h-6 rounded-full bg-secondary/40"></div>
+                                <div class="w-6 h-6 rounded-full bg-secondary/10"></div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Neutral -->
+                    <div class="group animate-on-scroll" style="animation-delay: 0.2s">
+                        <div class="h-64 rounded-3xl bg-dark mb-6 shadow-2xl transition-transform group-hover:scale-[1.02] duration-500 flex items-end p-8">
+                            <span class="text-white font-display text-4xl font-bold opacity-20 uppercase">Neutral</span>
+                        </div>
+                        <div class="flex justify-between items-center px-2">
+                            <div>
+                                <h4 class="font-bold uppercase text-xs tracking-widest">Deep Onyx</h4>
+                                <p class="text-[10px] text-dark/40">#2d322f</p>
+                            </div>
+                            <div class="flex gap-2">
+                                <div class="w-6 h-6 rounded-full bg-dark/80"></div>
+                                <div class="w-6 h-6 rounded-full bg-dark/40"></div>
+                                <div class="w-6 h-6 rounded-full bg-dark/10"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Color Usage Rules -->
+                <div class="mt-32 grid grid-cols-1 lg:grid-cols-4 gap-8">
+                    <div class="bg-white p-8 rounded-3xl border border-dark/5 animate-on-scroll">
+                        <iconify-icon icon="solar:text-bold" class="text-primary mb-4" width="24"></iconify-icon>
+                        <h5 class="font-bold uppercase text-[10px] tracking-widest mb-2">Typography</h5>
+                        <p class="text-xs text-dark/60 leading-relaxed">Use Dark for primary content, Primary for headers, and Gray for secondary details.</p>
+                    </div>
+                    <div class="bg-white p-8 rounded-3xl border border-dark/5 animate-on-scroll">
+                        <iconify-icon icon="solar:gallery-bold" class="text-primary mb-4" width="24"></iconify-icon>
+                        <h5 class="font-bold uppercase text-[10px] tracking-widest mb-2">Backgrounds</h5>
+                        <p class="text-xs text-dark/60 leading-relaxed">Light for general areas, Surface for content blocks, and Dark for high-impact sections.</p>
+                    </div>
+                    <div class="bg-white p-8 rounded-3xl border border-dark/5 animate-on-scroll">
+                        <iconify-icon icon="solar:link-bold" class="text-primary mb-4" width="24"></iconify-icon>
+                        <h5 class="font-bold uppercase text-[10px] tracking-widest mb-2">Interactive</h5>
+                        <p class="text-xs text-dark/60 leading-relaxed">Primary and Dark for CTAs. Use Secondary for subtle accents and highlights.</p>
+                    </div>
+                    <div class="bg-white p-8 rounded-3xl border border-dark/5 animate-on-scroll">
+                        <iconify-icon icon="solar:shield-check-bold" class="text-primary mb-4" width="24"></iconify-icon>
+                        <h5 class="font-bold uppercase text-[10px] tracking-widest mb-2">Contrast</h5>
+                        <p class="text-xs text-dark/60 leading-relaxed">Always maintain 4.5:1 ratio for accessibility on all background variants.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 5. UI COMPONENTS -->
+        <section id="components" class="py-32 bg-white relative overflow-hidden">
+            <div class="max-w-[1400px] mx-auto px-6">
+                <div class="mb-24 animate-on-scroll">
+                    <span class="text-[10px] uppercase font-bold tracking-[0.4em] text-primary mb-4 block">UI Library</span>
+                    <h2 class="font-display text-5xl md:text-7xl uppercase tracking-tighter">Interactive <br> <span class="italic font-accent lowercase normal-case text-primary/70">elements</span></h2>
+                </div>
+
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-20">
+                    <!-- Buttons -->
+                    <div class="space-y-12 animate-on-scroll">
+                        <h4 class="font-display text-2xl font-bold uppercase tracking-tight flex items-center gap-4">
+                            Buttons
+                            <span class="h-px flex-grow bg-dark/5"></span>
+                        </h4>
+                        <div class="flex flex-wrap gap-8">
+                            <button class="bg-dark text-white px-10 py-4 rounded-full text-[10px] font-bold uppercase tracking-widest hover:bg-primary transition-all hover:scale-105 active:scale-95 shadow-xl shadow-dark/10">Primary CTA</button>
+                            
+                            <button class="group relative px-10 py-4 text-[10px] font-bold uppercase tracking-widest text-dark overflow-hidden rounded-full border border-dark/20 hover:text-white transition-colors duration-500">
+                                <span class="relative z-10">Ghost Hover</span>
+                                <div class="absolute inset-0 bg-dark translate-y-full group-hover:translate-y-0 transition-transform duration-500"></div>
+                            </button>
+
+                            <button class="group flex items-center gap-3 text-[10px] font-bold uppercase tracking-widest text-primary">
+                                <span class="border-b-2 border-primary/20 pb-1 group-hover:border-primary transition-all">Text Link</span>
+                                <iconify-icon icon="solar:arrow-right-linear" class="group-hover:translate-x-2 transition-transform"></iconify-icon>
+                            </button>
+
+                            <button class="w-14 h-14 bg-surface rounded-full flex items-center justify-center hover:bg-primary hover:text-white transition-all hover:rotate-[360deg] duration-700">
+                                <iconify-icon icon="solar:add-circle-linear" width="24"></iconify-icon>
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Cards -->
+                    <div class="space-y-12 animate-on-scroll">
+                        <h4 class="font-display text-2xl font-bold uppercase tracking-tight flex items-center gap-4">
+                            Cards
+                            <span class="h-px flex-grow bg-dark/5"></span>
+                        </h4>
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                            <div class="bg-light p-8 rounded-3xl border border-dark/5 group hover:shadow-2xl transition-all duration-500 cursor-pointer">
+                                <div class="w-12 h-12 bg-white rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
+                                    <iconify-icon icon="solar:camera-bold" width="24" class="text-primary"></iconify-icon>
+                                </div>
+                                <h5 class="font-display text-xl font-bold uppercase mb-2">Content</h5>
+                                <p class="text-xs text-dark/50 leading-relaxed">Premium production for social media growth.</p>
+                            </div>
+
+                            <div class="relative rounded-3xl overflow-hidden aspect-square group">
+                                <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?q=80&w=800&auto=format&fit=crop" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" alt="">
+                                <div class="absolute inset-0 bg-gradient-to-t from-dark/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex flex-col justify-end p-6">
+                                    <h5 class="text-white font-display text-lg uppercase">Visuals</h5>
+                                    <p class="text-white/60 text-[10px] uppercase tracking-widest">Storytelling</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Inputs & Forms -->
+                    <div class="space-y-12 animate-on-scroll">
+                        <h4 class="font-display text-2xl font-bold uppercase tracking-tight flex items-center gap-4">
+                            Inputs
+                            <span class="h-px flex-grow bg-dark/5"></span>
+                        </h4>
+                        <div class="space-y-6">
+                            <div class="relative">
+                                <input type="text" placeholder="Your Name" class="w-full bg-surface border-none rounded-2xl px-6 py-4 text-sm focus:ring-2 focus:ring-primary/20 outline-none transition-all placeholder:text-dark/20">
+                            </div>
+                            <div class="relative">
+                                <textarea placeholder="Message" rows="4" class="w-full bg-surface border-none rounded-2xl px-6 py-4 text-sm focus:ring-2 focus:ring-primary/20 outline-none transition-all placeholder:text-dark/20 resize-none"></textarea>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Badges & Tooltips -->
+                    <div class="space-y-12 animate-on-scroll">
+                        <h4 class="font-display text-2xl font-bold uppercase tracking-tight flex items-center gap-4">
+                            Details
+                            <span class="h-px flex-grow bg-dark/5"></span>
+                        </h4>
+                        <div class="flex flex-wrap gap-4 items-center">
+                            <span class="px-4 py-2 bg-primary/10 text-primary text-[10px] font-bold uppercase tracking-widest rounded-full">New Update</span>
+                            <span class="px-4 py-2 bg-dark text-white text-[10px] font-bold uppercase tracking-widest rounded-full">Featured</span>
+                            <span class="px-4 py-2 border border-dark/10 text-dark/60 text-[10px] font-bold uppercase tracking-widest rounded-full">Coming Soon</span>
+                            
+                            <!-- Simple Tooltip Demo -->
+                            <div class="group relative">
+                                <div class="w-10 h-10 bg-surface rounded-full flex items-center justify-center cursor-help">
+                                    <iconify-icon icon="solar:info-circle-linear" width="20"></iconify-icon>
+                                </div>
+                                <div class="absolute bottom-full left-1/2 -translate-x-1/2 mb-2 px-3 py-2 bg-dark text-white text-[10px] uppercase font-bold tracking-widest rounded-lg opacity-0 group-hover:opacity-100 transition-all pointer-events-none whitespace-nowrap">
+                                    System Info
+                                    <div class="absolute top-full left-1/2 -translate-x-1/2 border-8 border-transparent border-t-dark"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 6. MOTION ENGINE -->
+        <section class="py-32 bg-dark text-white relative overflow-hidden">
+            <!-- Animated Background Grid (Inspired by DS0) -->
+            <div class="absolute inset-0 pointer-events-none opacity-[0.05]" style="background-image: 
+                linear-gradient(to right, rgba(255,255,255,0.1) 1px, transparent 1px),
+                linear-gradient(to bottom, rgba(255,255,255,0.1) 1px, transparent 1px);
+                background-size: 60px 60px;"></div>
+            
+            <div class="max-w-[1400px] mx-auto px-6 relative z-10">
+                <div class="flex flex-col items-center text-center mb-24 animate-on-scroll">
+                    <span class="text-[10px] uppercase font-bold tracking-[0.4em] text-primary mb-4 block">Motion Engine</span>
+                    <h2 class="font-display text-5xl md:text-7xl uppercase tracking-tighter">Fluid <br> <span class="italic font-accent lowercase normal-case text-primary/70">Transitions</span></h2>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                    <div class="p-10 bg-white/5 border border-white/10 rounded-[2.5rem] flex flex-col items-center text-center animate-on-scroll">
+                        <div class="w-16 h-16 rounded-2xl bg-primary/20 flex items-center justify-center mb-6 animate-pulse">
+                            <iconify-icon icon="solar:ghost-bold" width="32" class="text-primary"></iconify-icon>
+                        </div>
+                        <h4 class="font-display text-lg font-bold uppercase mb-4">Slide Up Blur</h4>
+                        <p class="text-xs text-white/40 leading-relaxed">Smooth entry for all elements, creating a professional and curated feeling.</p>
+                    </div>
+
+                    <div class="p-10 bg-white/5 border border-white/10 rounded-[2.5rem] flex flex-col items-center text-center animate-on-scroll" style="animation-delay: 0.1s">
+                        <div class="w-16 h-16 rounded-full bg-secondary/20 flex items-center justify-center mb-6">
+                            <div class="w-8 h-8 bg-secondary rounded-full sonar-ring"></div>
+                        </div>
+                        <h4 class="font-display text-lg font-bold uppercase mb-4">Sonar Wave</h4>
+                        <p class="text-xs text-white/40 leading-relaxed">Interactive pulses on key conversion points to subtly guide the user's eye.</p>
+                    </div>
+
+                    <div class="p-10 bg-white/5 border border-white/10 rounded-[2.5rem] flex flex-col items-center text-center animate-on-scroll" style="animation-delay: 0.2s">
+                        <div class="w-16 h-16 rounded-2xl bg-white/10 flex items-center justify-center mb-6 floating">
+                            <iconify-icon icon="solar:rocket-2-bold" width="32" class="text-white"></iconify-icon>
+                        </div>
+                        <h4 class="font-display text-lg font-bold uppercase mb-4">3D Floating</h4>
+                        <p class="text-xs text-white/40 leading-relaxed">Subtle vertical motion for decorative elements to create depth and liveliness.</p>
+                    </div>
+
+                    <div class="p-10 bg-white/5 border border-white/10 rounded-[2.5rem] flex flex-col items-center text-center animate-on-scroll" style="animation-delay: 0.3s">
+                        <div class="w-16 h-16 rounded-2xl bg-white/10 flex items-center justify-center mb-6 overflow-hidden">
+                            <div class="w-full h-1 bg-primary animate-[shimmer_2s_infinite]"></div>
+                            <style>@keyframes shimmer { 0% { transform: translateX(-100%); } 100% { transform: translateX(100%); } }</style>
+                        </div>
+                        <h4 class="font-display text-lg font-bold uppercase mb-4">Grain & Mesh</h4>
+                        <p class="text-xs text-white/40 leading-relaxed">Dynamic noise and mesh gradients to add texture and a "high-fidelity" feel.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="py-20 bg-light border-t border-dark/5">
+        <div class="max-w-[1400px] mx-auto px-6 flex flex-col md:flex-row justify-between items-center gap-10">
+            <div class="flex items-center gap-3">
+                <div class="w-8 h-8 bg-dark text-white rounded-lg flex items-center justify-center">
+                    <iconify-icon icon="solar:stars-minimalistic-bold" width="18"></iconify-icon>
+                </div>
+                <span class="font-display font-bold uppercase tracking-tight">Paula Vieira DS 1.0</span>
+            </div>
+            <p class="text-[10px] uppercase font-bold text-dark/30 tracking-[0.3em]">© 2024 Built with Advanced Agency Logic</p>
+            <div class="flex gap-6">
+                <a href="#" class="w-10 h-10 rounded-full border border-dark/10 flex items-center justify-center hover:bg-dark hover:text-white transition-all">
+                    <iconify-icon icon="simple-icons:instagram" width="16"></iconify-icon>
+                </a>
+                <a href="#" class="w-10 h-10 rounded-full border border-dark/10 flex items-center justify-center hover:bg-dark hover:text-white transition-all">
+                    <iconify-icon icon="simple-icons:tiktok" width="16"></iconify-icon>
+                </a>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Animate on Scroll Logic
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: "0px 0px -50px 0px"
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('is-visible');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.animate-on-scroll').forEach(el => observer.observe(el));
+
+        // Hero Slider Logic
+        const slides = document.querySelectorAll('#hero-slider .slider-card');
+        let currentSlide = 0;
+
+        function nextSlide() {
+            slides[currentSlide].classList.remove('slide-active');
+            slides[currentSlide].classList.add('slide-hidden');
+            
+            currentSlide = (currentSlide + 1) % slides.length;
+            
+            slides[currentSlide].classList.remove('slide-hidden');
+            slides[currentSlide].classList.add('slide-active');
+        }
+
+        setInterval(nextSlide, 5000);
+
+        // Sticky Nav Logic
+        window.addEventListener('scroll', () => {
+            const nav = document.getElementById('main-nav');
+            if (window.scrollY > 50) {
+                nav.classList.add('bg-white/80', 'backdrop-blur-md', 'py-4', 'shadow-sm', 'border-b', 'border-dark/5');
+                nav.classList.remove('py-6');
+            } else {
+                nav.classList.remove('bg-white/80', 'backdrop-blur-md', 'py-4', 'shadow-sm', 'border-b', 'border-dark/5');
+                nav.classList.add('py-6');
+            }
+        });
+    </script>
+</body>
+</html>
