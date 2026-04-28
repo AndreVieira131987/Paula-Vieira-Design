@@ -38,7 +38,7 @@ export function Navbar() {
             <span className="font-display text-lg font-bold tracking-tighter leading-none text-dark">
               PAULA VIEIRA
             </span>
-            <span className="text-[9px] uppercase tracking-[0.3em] font-semibold text-primary/70">
+            <span className="text-[9px] uppercase tracking-[0.3em] font-semibold text-brand/70">
               Design Gráfico
             </span>
           </div>

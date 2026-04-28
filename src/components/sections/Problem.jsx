@@ -53,7 +53,7 @@ export function Problem() {
           <p className="font-accent italic text-3xl md:text-4xl lg:text-5xl text-dark leading-tight mb-0">
             "Hoje, a presença digital
           </p>
-          <p className="font-accent italic text-3xl md:text-4xl lg:text-5xl text-primary leading-tight">
+          <p className="font-accent italic text-3xl md:text-4xl lg:text-5xl text-brand leading-tight">
             influencia a decisão de compra.
           </p>
         </blockquote>

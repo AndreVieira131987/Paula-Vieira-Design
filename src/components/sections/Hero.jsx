@@ -47,7 +47,7 @@ export function Hero() {
       </div>
 
       {/* Radial glow */}
-      <div className="absolute top-1/3 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-primary/5 rounded-full blur-[120px] pointer-events-none" />
+      <div className="absolute top-1/3 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-brand/5 rounded-full blur-[120px] pointer-events-none" />
 
       <div className="max-w-7xl mx-auto px-6 w-full relative z-10">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-24 items-center">
@@ -60,8 +60,8 @@ export function Hero() {
               style={{ animation: 'animationIn 0.8s ease-out 0.2s both' }}
             >
               <span className="flex h-2 w-2 relative">
-                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-primary opacity-75" />
-                <span className="relative inline-flex rounded-full h-2 w-2 bg-primary" />
+                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-brand opacity-75" />
+                <span className="relative inline-flex rounded-full h-2 w-2 bg-brand" />
               </span>
               <span className="text-[10px] uppercase font-bold tracking-[0.3em] text-dark/70">
                 Disponível para novos projetos
@@ -74,7 +74,7 @@ export function Hero() {
               style={{ animation: 'animationIn 1.2s ease-out 0.4s both' }}
             >
               Conectando<br />
-              <span className="text-primary">Marcas</span> ao<br />
+              <span className="text-brand">Marcas</span> ao<br />
               Público
             </h1>
 

@@ -52,8 +52,11 @@ export function Pillars() {
             </div>
 
             {/* Hover panel — slides from right */}
-            <div className="absolute inset-y-0 right-0 w-[70%] bg-primary/95 backdrop-blur-xl translate-x-full group-hover:translate-x-0 transition-transform duration-700 ease-out z-30 flex flex-col justify-center p-8 border-l border-white/10">
-              <p className="text-secondary text-[10px] uppercase tracking-widest font-bold mb-4">
+            <div className="absolute inset-y-0 right-0 w-[70%] bg-brand/95 backdrop-blur-xl translate-x-full group-hover:translate-x-0 transition-transform duration-700 ease-out z-30 flex flex-col justify-center p-8 border-l border-white/10">
+              <div className="w-10 h-10 bg-brand text-white rounded-full flex items-center justify-center font-display font-bold text-sm mb-4">
+                {pillar.number}
+              </div>
+              <p className="text-brand text-[9px] uppercase tracking-widest font-bold mb-1 opacity-0 group-hover:opacity-100 transition-opacity duration-500">
                 {pillar.subtitle}
               </p>
               <div className="w-10 h-px bg-white/30 mb-6" />

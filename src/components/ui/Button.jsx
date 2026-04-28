@@ -26,12 +26,12 @@ export function Button({
   }
 
   const variants = {
-    primary:
-      'bg-dark text-white rounded-full shadow-2xl shadow-dark/20 hover:bg-primary hover:scale-105',
+    brand:
+      'bg-dark text-white rounded-full shadow-2xl shadow-dark/20 hover:bg-brand hover:scale-105',
     ghost:
       'border border-dark/20 text-dark rounded-full hover:bg-dark hover:text-white hover:border-dark',
     outline:
-      'border-2 border-primary text-primary rounded-full hover:bg-primary hover:text-white',
+      'border-2 border-brand text-brand rounded-full hover:bg-brand hover:text-white',
   }
 
   const classes = `${base} ${sizes[size]} ${variants[variant]} ${className}`

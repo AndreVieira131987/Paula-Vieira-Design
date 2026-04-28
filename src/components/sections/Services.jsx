@@ -104,8 +104,8 @@ export function Services() {
             {/* Plus callout */}
             <div className="bg-white rounded-3xl p-10 border border-dark/5 shadow-sm">
               <div className="flex items-center gap-3 mb-6">
-                <div className="w-10 h-10 bg-primary/10 rounded-xl flex items-center justify-center">
-                  <Zap size={18} className="text-primary" />
+                <div className="w-10 h-10 bg-brand/10 rounded-xl flex items-center justify-center">
+                  <Zap size={18} className="text-brand" />
                 </div>
                 <h3 className="font-display text-xl uppercase tracking-tight font-bold">O "Plus"</h3>
               </div>
@@ -115,8 +115,8 @@ export function Services() {
               <ul className="space-y-4">
                 {planEssential.plus.map((item) => (
                   <li key={item} className="flex items-start gap-3">
-                    <div className="w-5 h-5 rounded-full bg-primary/10 flex items-center justify-center shrink-0 mt-0.5">
-                      <Check size={11} className="text-primary" />
+                    <div className="w-5 h-5 rounded-full bg-brand/10 flex items-center justify-center shrink-0 mt-0.5">
+                      <Check size={11} className="text-brand" />
                     </div>
                     <span className="text-dark/70 text-sm font-medium">{item}</span>
                   </li>
@@ -125,7 +125,7 @@ export function Services() {
             </div>
 
             {/* Testimonial / promise card */}
-            <div className="bg-primary rounded-3xl p-10 text-white">
+            <div className="bg-brand rounded-3xl p-10 text-white">
               <p className="font-accent italic text-xl leading-snug mb-6">
                 "Não vendemos posts. Construímos presença digital que trabalha por você 24 horas por dia."
               </p>

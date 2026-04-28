@@ -20,7 +20,7 @@ export const portfolioProjects = [
     description: 'Manual de integração e assinatura LGPD. Presença digital sólida para o setor técnico-industrial.',
     tag: 'Design Corporativo',
     image: 'https://images.unsplash.com/photo-1497366216548-37526070297c?q=80&w=900&auto=format&fit=crop',
-    color: '#3F556B',
+    color: '#9E6B72',
   },
   {
     id: 3,

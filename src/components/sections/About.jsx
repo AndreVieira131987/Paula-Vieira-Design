@@ -15,7 +15,7 @@ export function About() {
             {/* Photo container */}
             <div className="relative rounded-3xl overflow-hidden aspect-[4/5] max-w-md mx-auto lg:mx-0 shadow-2xl shadow-dark/20">
               <img
-                src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?q=80&w=800&auto=format&fit=crop"
+                src="/assets/paula.jpeg"
                 alt="Paula Vieira — Designer"
                 className="w-full h-full object-cover"
               />
@@ -35,8 +35,8 @@ export function About() {
             {/* Floating card */}
             <div className="absolute -right-4 top-12 bg-white rounded-2xl p-5 shadow-2xl border border-dark/5 hidden md:block floating" style={{ animationDelay: '0.5s' }}>
               <div className="flex items-center gap-3">
-                <div className="w-10 h-10 bg-primary/10 rounded-xl flex items-center justify-center">
-                  <Star size={18} className="text-primary fill-primary" />
+                <div className="w-10 h-10 bg-brand/10 rounded-xl flex items-center justify-center">
+                  <Star size={18} className="text-brand fill-brand" />
                 </div>
                 <div>
                   <p className="font-display font-bold text-sm">Curitiba, PR</p>
