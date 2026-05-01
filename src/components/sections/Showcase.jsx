@@ -1,4 +1,4 @@
-﻿import { useState } from 'react'
+import { useState } from 'react'
 import { useScrollReveal } from '../../hooks/useScrollReveal'
 import { SectionLabel } from '../ui/SectionLabel'
 import { portfolioProjects } from '../../data/portfolio'
@@ -31,9 +31,12 @@ export function Showcase() {
         {/* 2×2 Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
           {portfolioProjects.map((project, idx) => (
-            <div
+            <a
               key={project.id}
-              className={`relative overflow-hidden rounded-3xl cursor-pointer group reveal reveal-delay-${idx + 1}`}
+              href={project.image}
+              target="_blank"
+              rel="noopener noreferrer"
+              className={`relative block overflow-hidden rounded-3xl cursor-pointer group reveal reveal-delay-${idx + 1}`}
               style={{ height: idx % 3 === 0 ? '520px' : '440px' }}
               onMouseEnter={() => setHovered(project.id)}
               onMouseLeave={() => setHovered(null)}
@@ -87,7 +90,7 @@ export function Showcase() {
                   {project.description}
                 </p>
               </div>
-            </div>
+            </a>
           ))}
         </div>
       </div>
