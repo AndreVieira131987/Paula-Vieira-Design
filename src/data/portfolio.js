@@ -1,6 +1,5 @@
 // ============================================================
 // PORTFOLIO DATA — Paula Vieira Design
-// Replace image URLs with real project images when available.
 // ============================================================
 
 export const portfolioProjects = [
@@ -10,7 +9,7 @@ export const portfolioProjects = [
     niche: 'Gastronomia',
     description: 'Branding visual premium com foco em "Cereja do bolo" — identidade que transforma doces em desejo.',
     tag: 'Branding & Social',
-    image: 'https://i.ibb.co/wFVs5x4K/crie-uma-imagem-de-uma-202605011257.jpg',
+    image: 'https://i.ibb.co/qYQvLNvV/lovidoceria-202605011412.jpg',
     color: '#9E6B72',
   },
   {
@@ -19,7 +18,7 @@ export const portfolioProjects = [
     niche: 'Corporativo',
     description: 'Manual de integração e assinatura LGPD. Presença digital sólida para o setor técnico-industrial.',
     tag: 'Design Corporativo',
-    image: 'https://i.ibb.co/xqZfwk5y/Recrie-imagem-com-fundo-vivo-202605011402.jpg',
+    image: 'https://i.ibb.co/39VzbJg6/flowtecarcondicionado-202605011411.jpg',
     color: '#9E6B72',
   },
   {
@@ -28,7 +27,7 @@ export const portfolioProjects = [
     niche: 'Automotivo',
     description: 'Desenvolvimento da logomarca, artes social media, criação e gestão de rede social, artes gráficas.',
     tag: 'Social Media & Lifestyle',
-    image: 'https://i.ibb.co/hxtDgkgc/Recrie-imagem-reposicionando-obj-202605011313.jpg',
+    image: 'https://i.ibb.co/1GFWrh76/oficinamclaren-202605011411.jpg',
     color: '#9E6B72',
   },
   {
@@ -37,7 +36,7 @@ export const portfolioProjects = [
     niche: 'Lifestyle',
     description: 'Gestão completa de rede social com propósito — comunidade, estética e posicionamento.',
     tag: 'Social Media & Lifestyle',
-    image: 'https://i.ibb.co/tMqvFSSf/Recrie-imagem-com-fundo-vivo-202605011404.jpg',
+    image: 'https://i.ibb.co/gLsVzPyP/pvmesaposta-202605011410.jpg',
     color: '#9E6B72',
   },
 ]
