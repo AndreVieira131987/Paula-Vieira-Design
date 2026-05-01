@@ -19,7 +19,7 @@ export const portfolioProjects = [
     niche: 'Corporativo',
     description: 'Manual de integração e assinatura LGPD. Presença digital sólida para o setor técnico-industrial.',
     tag: 'Design Corporativo',
-    image: 'https://i.ibb.co/ycKM7Xr6/Reorganize-objetos-seguindo-iden-202605011310.jpg',
+    image: 'https://i.ibb.co/xqZfwk5y/Recrie-imagem-com-fundo-vivo-202605011402.jpg',
     color: '#9E6B72',
   },
   {
@@ -37,7 +37,7 @@ export const portfolioProjects = [
     niche: 'Lifestyle',
     description: 'Gestão completa de rede social com propósito — comunidade, estética e posicionamento.',
     tag: 'Social Media & Lifestyle',
-    image: 'https://i.ibb.co/gKFsFsB/Recrie-imagem-reposicionando-obj-202605011303.jpg',
+    image: 'https://i.ibb.co/tMqvFSSf/Recrie-imagem-com-fundo-vivo-202605011404.jpg',
     color: '#9E6B72',
   },
 ]
