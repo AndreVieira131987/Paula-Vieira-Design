@@ -15,7 +15,7 @@ export function About() {
             {/* Photo container */}
             <div className="relative rounded-3xl overflow-hidden aspect-[4/5] max-w-md mx-auto lg:mx-0 shadow-2xl shadow-dark/20">
               <img
-                src="/assets/paula.jpeg"
+                src="https://i.ibb.co/BKLWPvVP/paula.jpg"
                 alt="Paula Vieira — Designer"
                 className="w-full h-full object-cover"
               />
