@@ -53,13 +53,12 @@ export function Footer() {
         {/* Divider */}
         <div className="border-t border-white/10 pt-10 flex flex-col md:flex-row justify-between items-center gap-6">
           {/* Logo */}
-          <div className="flex items-center gap-3">
-            <div className="w-8 h-8 bg-white/10 border border-white/10 rounded-lg flex items-center justify-center font-display font-bold text-white text-sm">
-              P
-            </div>
-            <span className="font-display font-bold uppercase tracking-tight text-white">
-              Paula Vieira
-            </span>
+          <div className="flex items-center">
+            <img
+              src="/favicon.png"
+              alt="Paula Vieira Logo"
+              className="h-16 w-auto object-contain"
+            />
           </div>
 
           <p className="text-white/30 text-[10px] uppercase tracking-[0.3em]">

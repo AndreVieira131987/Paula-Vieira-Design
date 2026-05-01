@@ -1,13 +1,13 @@
-﻿import { useState, useEffect } from 'react'
+import { useState, useEffect } from 'react'
 import { Menu, X, ArrowRight } from 'lucide-react'
 
 const navLinks = [
-  { href: '#hero',     label: 'Início' },
+  { href: '#hero', label: 'Início' },
   { href: '#problema', label: 'Filosofia' },
-  { href: '#pilares',  label: 'Método' },
-  { href: '#portfolio',label: 'Portfólio' },
-  { href: '#sobre',    label: 'Sobre' },
-  { href: '#planos',   label: 'Planos' },
+  { href: '#pilares', label: 'Método' },
+  { href: '#portfolio', label: 'Portfólio' },
+  { href: '#sobre', label: 'Sobre' },
+  { href: '#planos', label: 'Planos' },
 ]
 
 export function Navbar() {
@@ -22,18 +22,19 @@ export function Navbar() {
 
   return (
     <header
-      className={`fixed top-0 w-full z-[1000] transition-all duration-500 ${
-        scrolled
-          ? 'py-3 bg-white/80 backdrop-blur-md shadow-sm border-b border-dark/5'
-          : 'py-5 bg-transparent'
-      }`}
+      className={`fixed top-0 w-full z-[1000] transition-all duration-500 ${scrolled
+        ? 'py-3 bg-white/80 backdrop-blur-md shadow-sm border-b border-dark/5'
+        : 'py-5 bg-transparent'
+        }`}
     >
       <div className="max-w-7xl mx-auto px-6 flex items-center justify-between">
         {/* Logo */}
-        <a href="#hero" className="flex items-center gap-3 group cursor-pointer">
-          <div className="w-10 h-10 bg-dark text-white rounded-xl flex items-center justify-center transition-transform group-hover:rotate-12 duration-500 shadow-lg shadow-dark/10 text-lg font-display font-bold">
-            P
-          </div>
+        <a href="#hero" className="flex items-center gap-4 group cursor-pointer">
+          <img
+            src="/favicon.png"
+            alt="Paula Vieira Logo"
+            className="h-16 w-auto object-contain transition-transform group-hover:scale-105 duration-500"
+          />
           <div className="flex flex-col">
             <span className="font-display text-lg font-bold tracking-tighter leading-none text-dark">
               PAULA VIEIRA
@@ -81,9 +82,8 @@ export function Navbar() {
 
       {/* Mobile Menu */}
       <div
-        className={`md:hidden transition-all duration-500 overflow-hidden ${
-          mobileOpen ? 'max-h-96 opacity-100' : 'max-h-0 opacity-0'
-        }`}
+        className={`md:hidden transition-all duration-500 overflow-hidden ${mobileOpen ? 'max-h-96 opacity-100' : 'max-h-0 opacity-0'
+          }`}
       >
         <nav className="bg-white/95 backdrop-blur-md border-t border-dark/5 px-6 py-6 flex flex-col gap-4">
           {navLinks.map((link) => (
