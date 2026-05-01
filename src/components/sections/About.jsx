@@ -56,7 +56,7 @@ export function About() {
               <SectionLabel>Sobre</SectionLabel>
               <h2 className="font-display text-5xl md:text-6xl uppercase tracking-tighter leading-[0.9] mb-6">
                 Quem é<br />
-                <span className="text-primary">Paula Vieira?</span>
+                <span className="text-brand">Paula Vieira?</span>
               </h2>
             </div>
 
@@ -74,7 +74,7 @@ export function About() {
             </div>
 
             {/* Highlight quote */}
-            <div className="reveal reveal-delay-2 border-l-4 border-primary pl-6 py-2">
+            <div className="reveal reveal-delay-2 border-l-4 border-brand pl-6 py-2">
               <p className="font-accent italic text-xl md:text-2xl text-dark leading-snug">
                 "Combinando criatividade com análise para maximizar sua visibilidade."
               </p>
@@ -91,7 +91,7 @@ export function About() {
                   key={tag.text}
                   className="flex items-center gap-2 bg-white border border-dark/5 rounded-full px-4 py-2 text-xs font-semibold text-dark/60 shadow-sm"
                 >
-                  <span className="text-primary">{tag.icon}</span>
+                  <span className="text-brand">{tag.icon}</span>
                   {tag.text}
                 </div>
               ))}
@@ -100,8 +100,8 @@ export function About() {
             {/* Differentials */}
             <div className="reveal reveal-delay-4 grid grid-cols-2 gap-4">
               {[
-                { value: '50+', label: 'Projetos entregues' },
-                { value: '3', label: 'Anos de experiência' },
+                { value: '30+', label: 'Projetos entregues' },
+                { value: '2', label: 'Anos de experiência' },
                 { value: '100%', label: 'Projetos personalizados' },
                 { value: '∞', label: 'Dedicação ao resultado' },
               ].map((item) => (
@@ -109,7 +109,7 @@ export function About() {
                   key={item.label}
                   className="bg-white rounded-2xl p-5 border border-dark/5 hover:shadow-lg transition-shadow"
                 >
-                  <p className="font-display text-2xl font-bold text-primary mb-1">{item.value}</p>
+                  <p className="font-display text-2xl font-bold text-brand mb-1">{item.value}</p>
                   <p className="text-[11px] text-dark/50 font-semibold uppercase tracking-wider">{item.label}</p>
                 </div>
               ))}

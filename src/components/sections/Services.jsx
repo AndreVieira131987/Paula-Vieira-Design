@@ -142,7 +142,7 @@ export function Services() {
 
             {/* Secondary CTA */}
             <Button
-              href="https://wa.me/5541999999999?text=Olá%20Paula,%20quero%20saber%20mais%20sobre%20os%20seus%20serviços!"
+              href="https://wa.me/5541988063680?text=Olá%20Paula,%20quero%20saber%20mais%20sobre%20os%20seus%20serviços!"
               variant="ghost"
               size="lg"
               className="w-full justify-center"

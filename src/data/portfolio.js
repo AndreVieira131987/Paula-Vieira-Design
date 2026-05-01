@@ -10,8 +10,8 @@ export const portfolioProjects = [
     niche: 'Gastronomia',
     description: 'Branding visual premium com foco em "Cereja do bolo" — identidade que transforma doces em desejo.',
     tag: 'Branding & Social',
-    image: 'https://images.unsplash.com/photo-1587314168485-3236d6710814?q=80&w=900&auto=format&fit=crop',
-    color: '#d1c8c0',
+    image: 'https://i.ibb.co/wFVs5x4K/crie-uma-imagem-de-uma-202605011257.jpg',
+    color: '#9E6B72',
   },
   {
     id: 2,
@@ -19,17 +19,17 @@ export const portfolioProjects = [
     niche: 'Corporativo',
     description: 'Manual de integração e assinatura LGPD. Presença digital sólida para o setor técnico-industrial.',
     tag: 'Design Corporativo',
-    image: 'https://images.unsplash.com/photo-1497366216548-37526070297c?q=80&w=900&auto=format&fit=crop',
+    image: 'https://i.ibb.co/ycKM7Xr6/Reorganize-objetos-seguindo-iden-202605011310.jpg',
     color: '#9E6B72',
   },
   {
     id: 3,
-    client: 'Gui Eventos',
-    niche: 'Entretenimento',
-    description: 'Molduras personalizadas para experiência 360° — design imersivo para eventos memoráveis.',
-    tag: 'Eventos & Experiência',
-    image: 'https://images.unsplash.com/photo-1492684223066-81342ee5ff30?q=80&w=900&auto=format&fit=crop',
-    color: '#2d322f',
+    client: 'Oficina McLaren',
+    niche: 'Automotivo',
+    description: 'Desenvolvimento da logomarca, artes social media, criação e gestão de rede social, artes gráficas.',
+    tag: 'Social Media & Lifestyle',
+    image: 'https://i.ibb.co/hxtDgkgc/Recrie-imagem-reposicionando-obj-202605011313.jpg',
+    color: '#9E6B72',
   },
   {
     id: 4,
@@ -37,8 +37,8 @@ export const portfolioProjects = [
     niche: 'Lifestyle',
     description: 'Gestão completa de rede social com propósito — comunidade, estética e posicionamento.',
     tag: 'Social Media & Lifestyle',
-    image: 'https://images.unsplash.com/photo-1414235077428-338989a2e8c0?q=80&w=900&auto=format&fit=crop',
-    color: '#E3DDD7',
+    image: 'https://i.ibb.co/gKFsFsB/Recrie-imagem-reposicionando-obj-202605011303.jpg',
+    color: '#9E6B72',
   },
 ]
 
@@ -48,9 +48,9 @@ export const pillars = [
     number: '01',
     title: 'IDEAÇÃO',
     subtitle: 'Estratégia & Curadoria',
-    description: 'Criação de estratégias em segundos com curadoria de conteúdo inteligente. Do briefing à pauta editorial, cada decisão tem propósito.',
+    description: 'Criação de estratégias em minutos com curadoria de conteúdo inteligente. Do briefing à pauta editorial, cada decisão tem propósito.',
     icon: 'lightbulb',
-    image: 'https://res.cloudinary.com/dlmpwmgej/image/upload/v1772583767/ideaci%C3%B3n_vertical_sgsuvt.png',
+    image: 'https://i.ibb.co/dXYfyB1/Recrie-imagem-tom-feminino-202605011221.jpg',
   },
   {
     id: 2,
@@ -59,7 +59,7 @@ export const pillars = [
     subtitle: 'Design & Vídeo Premium',
     description: 'Design visual e edição de vídeo de alta fidelidade prontos para converter sua audiência em clientes fiéis.',
     icon: 'camera',
-    image: 'https://res.cloudinary.com/dlmpwmgej/image/upload/v1772583783/Producci%C3%B3n_2_vnavnz.jpg',
+    image: 'https://i.ibb.co/YTjQC9L9/Woman-with-long-hair-setup-202605011224.jpg',
   },
   {
     id: 3,
@@ -68,7 +68,7 @@ export const pillars = [
     subtitle: 'Planejamento & Onipresença',
     description: 'Distribuição estratégica em multicanais com frequência sustentada para maximizar alcance e posicionamento.',
     icon: 'share',
-    image: 'https://res.cloudinary.com/dlmpwmgej/image/upload/v1772583755/Distribuci%C3%B3n_wqxhaz.png',
+    image: 'https://i.ibb.co/6cGKmTbG/Recriar-imagem-tom-feminino-202605011228.jpg',
   },
   {
     id: 4,
@@ -77,13 +77,13 @@ export const pillars = [
     subtitle: 'Dados & Otimização',
     description: 'Otimização contínua baseada em dados reais para ajustar mensagens, formatos e frequência — acelerando seus resultados.',
     icon: 'chart',
-    image: 'https://res.cloudinary.com/dlmpwmgej/image/upload/v1772583776/optimizaci%C3%B3n_2_du7zum.png',
+    image: 'https://i.ibb.co/5g3GYQM7/Woman-visualizing-social-media-m-202605011231.jpg',
   },
 ]
 
 export const planEssential = {
   name: 'Plano Essencial',
-  price: 'R$ 500',
+  price: 'R$ 850',
   period: '/mês',
   tagline: 'Fortalecimento e Posicionamento de Marca',
   highlight: 'Ideal para quem quer começar com consistência e profissionalismo.',
@@ -101,11 +101,11 @@ export const planEssential = {
     'Consultoria mensal de estratégia',
   ],
   cta: 'INICIAR PROJETO',
-  ctaLink: 'https://wa.me/5541999999999?text=Olá%20Paula,%20tenho%20interesse%20no%20Plano%20Essencial!',
+  ctaLink: 'https://wa.me/5541988063680?text=Olá%20Paula,%20tenho%20interesse%20no%20Plano%20Essencial!',
 }
 
 export const stats = [
   { value: 70, suffix: '%', label: 'dos consumidores pesquisam online antes de comprar' },
-  { value: 3,  suffix: 'x', label: 'mais confiança em marcas com presença digital ativa' },
+  { value: 3, suffix: 'x', label: 'mais confiança em marcas com presença digital ativa' },
   { value: 40, suffix: '%', label: 'de aumento médio em engajamento com estratégia visual' },
 ]

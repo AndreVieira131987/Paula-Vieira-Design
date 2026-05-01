@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react'
+﻿import { useState, useEffect } from 'react'
 import { Menu, X, ArrowRight } from 'lucide-react'
 
 const navLinks = [
@@ -66,7 +66,7 @@ export function Navbar() {
             Iniciar Projeto
             <ArrowRight size={14} className="group-hover:translate-x-1 transition-transform" />
           </span>
-          <div className="absolute inset-0 bg-primary translate-y-full group-hover:translate-y-0 transition-transform duration-500 rounded-full" />
+          <div className="absolute inset-0 bg-brand translate-y-full group-hover:translate-y-0 transition-transform duration-500 rounded-full" />
         </a>
 
         {/* Mobile Toggle */}
@@ -91,7 +91,7 @@ export function Navbar() {
               key={link.href}
               href={link.href}
               onClick={() => setMobileOpen(false)}
-              className="text-sm font-semibold uppercase tracking-widest text-dark/70 hover:text-primary transition-colors py-1"
+              className="text-sm font-semibold uppercase tracking-widest text-dark/70 hover:text-brand transition-colors py-1"
             >
               {link.label}
             </a>
@@ -99,7 +99,7 @@ export function Navbar() {
           <a
             href="#planos"
             onClick={() => setMobileOpen(false)}
-            className="mt-2 bg-dark text-white px-6 py-3 rounded-full text-[10px] font-bold uppercase tracking-widest text-center hover:bg-primary transition-colors"
+            className="mt-2 bg-dark text-white px-6 py-3 rounded-full text-[10px] font-bold uppercase tracking-widest text-center hover:bg-brand transition-colors"
           >
             Iniciar Projeto
           </a>

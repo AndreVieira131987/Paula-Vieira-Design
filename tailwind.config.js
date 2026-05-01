@@ -7,7 +7,7 @@ export default {
   theme: {
     extend: {
       colors: {
-        brand: '#A67C83',
+        brand: '#9E6B72',
         secondary: '#d1c8c0',
         dark: '#2d322f',
         light: '#ebedea',
@@ -23,6 +23,7 @@ export default {
         floating: 'floating 6s ease-in-out infinite',
         sonar: 'sonarWave 2s infinite cubic-bezier(0.16, 1, 0.3, 1)',
         slideUp: 'slideUpBlur 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards',
+        fillWidth: 'fillWidth 2s cubic-bezier(0.16, 1, 0.3, 1) forwards',
       },
       keyframes: {
         floating: {
@@ -36,6 +37,10 @@ export default {
         slideUpBlur: {
           '0%': { opacity: '0', transform: 'translateY(30px)', filter: 'blur(10px)' },
           '100%': { opacity: '1', transform: 'translateY(0)', filter: 'blur(0)' },
+        },
+        fillWidth: {
+          '0%': { width: '0%' },
+          '100%': { width: '75%' },
         },
       },
       backgroundImage: {

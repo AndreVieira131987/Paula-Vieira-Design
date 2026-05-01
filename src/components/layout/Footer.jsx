@@ -30,7 +30,7 @@ export function Footer() {
           {/* CTAs */}
           <div className="flex flex-wrap gap-4 justify-center">
             <a
-              href="https://wa.me/5541999999999?text=Olá%20Paula,%20quero%20construir%20minha%20imagem%20digital!"
+              href="https://wa.me/5541988063680?text=Olá%20Paula,%20quero%20construir%20minha%20imagem%20digital!"
               target="_blank"
               rel="noopener noreferrer"
               className="group flex items-center gap-3 bg-[#25D366] text-white px-8 py-4 rounded-full text-xs font-bold uppercase tracking-[0.2em] shadow-xl hover:scale-105 transition-all"
@@ -39,13 +39,13 @@ export function Footer() {
               WhatsApp
             </a>
             <a
-              href="https://instagram.com/paula.lvieira"
+              href="https://www.instagram.com/paulavieira_design/"
               target="_blank"
               rel="noopener noreferrer"
               className="group flex items-center gap-3 border border-white/20 text-white px-8 py-4 rounded-full text-xs font-bold uppercase tracking-[0.2em] hover:bg-white/10 transition-all"
             >
               <Instagram size={18} />
-              @paula.lvieira
+              @paulavieira_design
             </a>
           </div>
         </div>
@@ -68,7 +68,7 @@ export function Footer() {
 
           <div className="flex gap-3">
             <a
-              href="https://instagram.com/paula.lvieira"
+              href="https://www.instagram.com/paulavieira_design/"
               target="_blank"
               rel="noopener noreferrer"
               className="w-9 h-9 rounded-full border border-white/10 flex items-center justify-center hover:bg-white/10 transition-all"
@@ -77,7 +77,7 @@ export function Footer() {
               <Instagram size={16} />
             </a>
             <a
-              href="https://wa.me/5541999999999"
+              href="https://wa.me/5541988063680"
               target="_blank"
               rel="noopener noreferrer"
               className="w-9 h-9 rounded-full border border-white/10 flex items-center justify-center hover:bg-white/10 transition-all"

@@ -1,4 +1,4 @@
-import { useState } from 'react'
+﻿import { useState } from 'react'
 import { useScrollReveal } from '../../hooks/useScrollReveal'
 import { SectionLabel } from '../ui/SectionLabel'
 import { portfolioProjects } from '../../data/portfolio'
@@ -18,7 +18,7 @@ export function Showcase() {
             <SectionLabel>Portfólio Selecionado</SectionLabel>
             <h2 className="font-display text-5xl md:text-7xl uppercase tracking-tighter leading-[0.9]">
               Cases que<br />
-              <span className="font-accent normal-case italic tracking-normal text-primary/70">
+              <span className="font-accent normal-case italic tracking-normal text-brand/70">
                 geram resultados.
               </span>
             </h2>

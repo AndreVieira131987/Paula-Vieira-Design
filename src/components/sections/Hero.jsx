@@ -4,19 +4,19 @@ import { Button } from '../ui/Button'
 
 const slides = [
   {
-    label: 'App WeGo',
-    title: 'Digital\nStrategy',
-    image: 'https://images.unsplash.com/photo-1555421689-d68471e189f2?q=80&w=600&auto=format&fit=crop',
+    label: 'Produção de Conteúdo',
+    title: 'Estratégia\nDigital',
+    image: 'https://i.ibb.co/qM3bLS2b/Woman-working-on-social-media-202605011152.jpg',
   },
   {
-    label: 'McLaren Curitiba',
-    title: 'Luxury\nBranding',
-    image: 'https://images.unsplash.com/photo-1503376780353-7e6692767b70?q=80&w=600&auto=format&fit=crop',
+    label: 'Gestão de Redes Sociais',
+    title: 'Crescimento &\nEngajamento',
+    image: 'https://i.ibb.co/0VnD6WKb/Recrie-imagem-com-qualidade-supe-202605011143.jpg',
   },
   {
-    label: 'Feed Organizado',
-    title: 'Visual\nIdentity',
-    image: 'https://images.unsplash.com/photo-1611162617213-7d7a39e9b1d7?q=80&w=600&auto=format&fit=crop',
+    label: 'Design Gráfico',
+    title: 'Identidade\nVisual',
+    image: 'https://i.ibb.co/rRShygvk/Instagram-feed-organized-profess-202605011201.jpg',
   },
 ]
 
@@ -92,12 +92,12 @@ export function Hero() {
               style={{ animation: 'animationIn 1.2s ease-out 0.85s both' }}
             >
               <Button
-                href="https://wa.me/5541999999999?text=Olá%20Paula,%20quero%20iniciar%20um%20projeto!"
+                href="https://wa.me/5541988063680?text=Olá%20Paula,%20quero%20iniciar%20um%20projeto!"
                 size="lg"
                 sonar
                 className="shadow-2xl shadow-dark/20"
               >
-                Iniciar Projeto
+                Entre em contato
                 <Crown size={16} />
               </Button>
               <Button href="#portfolio" variant="ghost" size="lg">
@@ -112,8 +112,8 @@ export function Hero() {
               style={{ animation: 'animationIn 1.2s ease-out 1s both' }}
             >
               {[
-                { n: '50+', label: 'Projetos' },
-                { n: '3', label: 'Anos exp.' },
+                { n: '30+', label: 'Projetos' },
+                { n: '2', label: 'Anos exp.' },
                 { n: '100%', label: 'Dedicação' },
               ].map((s) => (
                 <div key={s.label}>
@@ -130,7 +130,7 @@ export function Hero() {
             style={{ animation: 'animationIn 1.5s ease-out 0.5s both' }}
           >
             {/* Glow behind phone */}
-            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-80 h-80 bg-primary/20 blur-[80px] rounded-full pointer-events-none" />
+            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-80 h-80 bg-brand/20 blur-[80px] rounded-full pointer-events-none" />
 
             {/* Phone outer shell */}
             <div className="relative w-[280px] h-[580px] md:w-[300px] md:h-[620px] floating">
@@ -162,7 +162,7 @@ export function Hero() {
                             P
                           </div>
                           <span className="text-[10px] font-bold text-white uppercase tracking-wider">
-                            @paula.lvieira
+                            @paulavieira_design
                           </span>
                         </div>
                         <div className="px-2.5 py-1 bg-white/20 backdrop-blur-md rounded-full border border-white/20">
@@ -199,20 +199,20 @@ export function Hero() {
             {/* Floating stat card */}
             <div className="absolute -left-10 top-1/3 glass bg-white/80 p-5 rounded-2xl shadow-2xl border border-dark/5 hidden md:block floating" style={{ animationDelay: '1s' }}>
               <div className="flex items-center gap-3 mb-3">
-                <div className="w-9 h-9 bg-primary/10 text-primary rounded-xl flex items-center justify-center font-bold text-sm">↑</div>
+                <div className="w-9 h-9 bg-brand/10 text-brand rounded-xl flex items-center justify-center font-bold text-sm">↑</div>
                 <div>
                   <p className="text-[9px] uppercase font-bold text-dark/40 tracking-widest">Engajamento</p>
                   <p className="text-lg font-display font-bold text-dark">+245%</p>
                 </div>
               </div>
               <div className="h-1 w-full bg-dark/5 rounded-full overflow-hidden">
-                <div className="h-full bg-primary w-3/4 rounded-full" />
+                <div className="h-full bg-brand rounded-full animate-fillWidth" style={{ animationDelay: '1.5s' }} />
               </div>
             </div>
 
             {/* Floating badge */}
             <div className="absolute -right-6 bottom-24 bg-secondary text-dark p-5 rounded-2xl shadow-2xl hidden md:block floating" style={{ animationDelay: '2s' }}>
-              <Crown size={28} className="mb-1.5 text-primary" />
+              <Crown size={28} className="mb-1.5 text-brand" />
               <p className="font-display text-sm font-bold uppercase leading-tight">
                 Premium<br />Strategy
               </p>
