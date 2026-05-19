@@ -2,7 +2,7 @@ import { useScrollReveal } from '../../hooks/useScrollReveal'
 import { SectionLabel } from '../ui/SectionLabel'
 import { Button } from '../ui/Button'
 import { planEssential } from '../../data/portfolio'
-import { Check, MessageCircle, Zap } from 'lucide-react'
+import { Check, MessageCircle, Sparkles, Zap } from 'lucide-react'
 
 export function Services() {
   const sectionRef = useScrollReveal()
@@ -14,16 +14,16 @@ export function Services() {
         {/* Header */}
         <div className="text-center mb-20">
           <div className="reveal">
-            <SectionLabel>Serviços & Planos</SectionLabel>
+            <SectionLabel>Serviços &amp; Soluções</SectionLabel>
           </div>
           <h2 className="reveal reveal-delay-1 font-display text-5xl md:text-7xl uppercase tracking-tighter leading-[0.9] mb-6">
-            Comece a construir<br />
+            Sua marca merece<br />
             <span className="font-accent normal-case italic tracking-normal text-primary/70">
-              sua autoridade hoje.
+              uma presença única.
             </span>
           </h2>
-          <p className="reveal reveal-delay-2 text-dark/50 max-w-md mx-auto font-medium">
-            Um plano pensado para gerar resultados consistentes, sem complicação.
+          <p className="reveal reveal-delay-2 text-dark/50 max-w-lg mx-auto font-medium">
+            Soluções sob medida desenhadas estrategicamente para elevar o posicionamento da sua marca e gerar resultados reais.
           </p>
         </div>
 
@@ -44,9 +44,9 @@ export function Services() {
 
             {/* Badge */}
             <div className="inline-flex items-center gap-2 bg-secondary/20 border border-secondary/30 px-4 py-1.5 rounded-full mb-8">
-              <Zap size={12} className="text-secondary" />
+              <Sparkles size={12} className="text-secondary" />
               <span className="text-secondary text-[10px] font-bold uppercase tracking-widest">
-                Mais popular
+                Exclusivo &amp; Premium
               </span>
             </div>
 
@@ -55,13 +55,15 @@ export function Services() {
               <p className="text-white/50 text-[10px] uppercase tracking-widest font-bold mb-2">
                 {planEssential.name}
               </p>
-              <div className="flex items-end gap-2">
-                <span className="font-display text-7xl md:text-8xl font-bold tracking-tight text-white">
+              <div className="flex flex-col gap-1">
+                <span className="font-display text-5xl md:text-7xl font-bold uppercase tracking-tighter text-white leading-none">
                   {planEssential.price}
                 </span>
-                <span className="text-white/40 text-xl mb-3 font-medium">{planEssential.period}</span>
+                <span className="text-secondary/80 text-[11px] uppercase tracking-widest font-bold mt-2">
+                  Orçamento sob consulta
+                </span>
               </div>
-              <p className="font-accent italic text-lg text-secondary mt-2">
+              <p className="font-accent italic text-lg text-secondary mt-4">
                 {planEssential.tagline}
               </p>
             </div>
@@ -72,7 +74,7 @@ export function Services() {
             {/* Includes */}
             <div className="mb-10">
               <p className="text-[10px] uppercase tracking-widest font-bold text-white/40 mb-5">
-                O que está incluído:
+                O que podemos desenvolver:
               </p>
               <ul className="space-y-3.5">
                 {planEssential.includes.map((item) => (
@@ -107,7 +109,7 @@ export function Services() {
                 <div className="w-10 h-10 bg-brand/10 rounded-xl flex items-center justify-center">
                   <Zap size={18} className="text-brand" />
                 </div>
-                <h3 className="font-display text-xl uppercase tracking-tight font-bold">O "Plus"</h3>
+                <h3 className="font-display text-xl uppercase tracking-tight font-bold">Diferencial Premium</h3>
               </div>
               <p className="text-dark/60 text-sm mb-6 leading-relaxed">
                 {planEssential.highlight}
@@ -125,7 +127,7 @@ export function Services() {
             </div>
 
             {/* Testimonial / promise card */}
-            <div className="bg-brand rounded-3xl p-10 text-white">
+            <div className="bg-brand rounded-3xl p-10 text-white shadow-xl">
               <p className="font-accent italic text-xl leading-snug mb-6">
                 "Não vendemos posts. Construímos presença digital que trabalha por você 24 horas por dia."
               </p>
@@ -135,17 +137,19 @@ export function Services() {
                 </div>
                 <div>
                   <p className="font-bold text-sm">Paula Vieira</p>
-                  <p className="text-white/60 text-[10px] uppercase tracking-widest">Designer & Social Media</p>
+                  <p className="text-white/60 text-[10px] uppercase tracking-widest">Designer &amp; Social Media</p>
                 </div>
               </div>
             </div>
 
             {/* Secondary CTA */}
             <Button
-              href="https://wa.me/5541988063680?text=Olá%20Paula,%20quero%20saber%20mais%20sobre%20os%20seus%20serviços!"
+              href="https://wa.me/5541988063680?text=Olá%20Paula,%20gostaria%20de%20conversar%20sobre%20as%20soluções%20sob%20medida%20para%20minha%20marca!"
               variant="ghost"
               size="lg"
               className="w-full justify-center"
+              target="_blank"
+              rel="noopener noreferrer"
             >
               <MessageCircle size={16} />
               Falar com Paula
@@ -156,3 +160,4 @@ export function Services() {
     </section>
   )
 }
+

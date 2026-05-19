@@ -81,26 +81,26 @@ export const pillars = [
 ]
 
 export const planEssential = {
-  name: 'Plano Essencial',
-  price: 'R$ 850',
-  period: '/mês',
-  tagline: 'Fortalecimento e Posicionamento de Marca',
-  highlight: 'Ideal para quem quer começar com consistência e profissionalismo.',
+  name: 'Projetos Exclusivos',
+  price: 'Sob Medida',
+  period: '',
+  tagline: 'Design Estratégico & Posicionamento de Autoridade',
+  highlight: 'Estratégias 100% personalizadas sob consulta, desenhadas exclusivamente para as necessidades e objetivos da sua marca.',
   includes: [
-    '8 posts estáticos por mês',
-    '4 Reels / vídeos curtos',
-    'Planejamento editorial mensal',
-    'Legendas objetivas e estratégicas',
-    'Identidade visual consistente',
-    'Relatório de desempenho básico',
+    'Identidade Visual & Branding Premium',
+    'Produção de Conteúdo Estratégico (Feed & Reels)',
+    'Gestão e Planejamento Editorial Completo',
+    'Curadoria de Estética e Direção Criativa',
+    'Legendas de Alto Impacto & Copywriting',
+    'Relatórios de Desempenho & Análise de Métricas',
   ],
   plus: [
-    'Foco em fortalecimento de marca',
-    'Posicionamento como autoridade',
-    'Consultoria mensal de estratégia',
+    'Foco absoluto em fortalecimento de marca',
+    'Posicionamento premium no seu nicho',
+    'Consultoria e acompanhamento estratégico',
   ],
-  cta: 'INICIAR PROJETO',
-  ctaLink: 'https://wa.me/5541988063680?text=Olá%20Paula,%20tenho%20interesse%20no%20Plano%20Essencial!',
+  cta: 'SOLICITAR ORÇAMENTO',
+  ctaLink: 'https://wa.me/5541988063680?text=Olá%20Paula!%20Gostaria%20de%20solicitar%20um%20orçamento%20personalizado%20para%20o%20meu%20projeto.',
 }
 
 export const stats = [
