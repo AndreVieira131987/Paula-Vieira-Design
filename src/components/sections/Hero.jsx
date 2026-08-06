@@ -162,7 +162,7 @@ export function Hero() {
                             P
                           </div>
                           <span className="text-[10px] font-bold text-white uppercase tracking-wider">
-                            @paulavieira_design
+                            @PAULAVIEIRACOMUNICA
                           </span>
                         </div>
                         <div className="px-2.5 py-1 bg-white/20 backdrop-blur-md rounded-full border border-white/20">

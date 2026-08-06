@@ -39,13 +39,13 @@ export function Footer() {
               WhatsApp
             </a>
             <a
-              href="https://www.instagram.com/paulavieira_design/"
+              href="https://www.instagram.com/PAULAVIEIRACOMUNICA/"
               target="_blank"
               rel="noopener noreferrer"
               className="group flex items-center gap-3 border border-white/20 text-white px-8 py-4 rounded-full text-xs font-bold uppercase tracking-[0.2em] hover:bg-white/10 transition-all"
             >
               <Instagram size={18} />
-              @paulavieira_design
+              @PAULAVIEIRACOMUNICA
             </a>
           </div>
         </div>
@@ -67,7 +67,7 @@ export function Footer() {
 
           <div className="flex gap-3">
             <a
-              href="https://www.instagram.com/paulavieira_design/"
+              href="https://www.instagram.com/PAULAVIEIRACOMUNICA/"
               target="_blank"
               rel="noopener noreferrer"
               className="w-9 h-9 rounded-full border border-white/10 flex items-center justify-center hover:bg-white/10 transition-all"
